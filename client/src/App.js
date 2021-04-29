@@ -21,7 +21,7 @@ function App() {
   // api call
   const getRecipies = async () => {
     const response = await fetch(
-      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=6`
     );
     const data = await response.json();
     // sets recipe state to results
@@ -39,10 +39,11 @@ function App() {
     setQuery(search);
     setSearch("");
   };
+
   // JSX
   return (
     <div className="container">
-      <h1 className="home-head">Yummy</h1>
+      <h1 className="home-head display-1">Yummy</h1>
       {/* form */}
       <form onSubmit={getSearch} className="search-form">
         <InputGroup className="mb-3">
@@ -60,12 +61,13 @@ function App() {
         </InputGroup>
       </form>
       {/* form end */}
+        <p style={{"color": "#fff"}}>*use commas to seprerate ingredients</p>
       <div className="recipe-div">
       {recipes.map((recipe) => (
         <RecipeCard
-          title={recipe.recipe.label}
-          calories={recipe.recipe.calories}
-          image={recipe.recipe.image}
+        title={recipe.recipe.label}
+        calories={recipe.recipe.calories}
+        image={recipe.recipe.image}
           ingredients={recipe.recipe.ingredients}
         />
       ))}

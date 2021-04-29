@@ -8,7 +8,13 @@
 }
 
 .recipe-div{
-    background-color: red;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.recipe-image{
+    border-radius: 100%;
+    border: 1px solid white;
+    max-height: 180px;
+    margin-top: 2%;
 }
