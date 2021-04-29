@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(https://www.solidbackgrounds.com/images/3840x2160/3840x2160-coral-pink-solid-color-background.jpg);
+}
+
+// sub components
+@import "./home"
