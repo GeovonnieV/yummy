@@ -1,18 +1,18 @@
 import React, {useState} from "react";
 import { Card, Button, Modal } from "react-bootstrap";
 
-const RecipeCard = ({ title, calories, image, ingredients }) => {
+const RecipeCard = ({ title, calories, image, ingredients, carbs, fats, protein }) => {
   // state
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
+console.log(carbs)
   // JSX
   return (
     <div className="container">
       <div className="container">
-        <Card.Img variant="center" src={image} className="recipe-image" />
+        <Card.Img variant="center" src={image} className="recipe-image" bg={"Secondary"} />
         <Card style={{ width: "18rem" }}>
           <Card.Body>
             <Card.Title>{title}</Card.Title>
@@ -20,14 +20,24 @@ const RecipeCard = ({ title, calories, image, ingredients }) => {
               calories({Math.round(calories)})
             </Card.Text>
             {/* modal */}
-            <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+            <Button style={{"background": "white", "borderColor": "coral", "color": "coral"}} onClick={handleShow}>
+        Recipe
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Macros(Carbs: {carbs}g, Fats: {fats}g, Protein: {protein}g)</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+            <ul>
+                {
+                    ingredients.map((ingredient) => (
+                     <ol>{ingredient.text}</ol>
+                    ))
+                }
+            
+
+            </ul>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

@@ -12,7 +12,7 @@ function App() {
   // State
   const [recipes, setRecipies] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("chicken");
+  const [query, setQuery] = useState("rice");
 
   //  runs when query is changed
   useEffect(() => {
@@ -44,6 +44,7 @@ function App() {
   return (
     <div className="container">
       <h1 className="home-head display-1">Yummy</h1>
+      <p style={{"color": "#fff"}}>5 star chef or 1st time meal maker? No matter the case Yummy will turn everyday ingredients to Yummy plates!</p>
       {/* form */}
       <form onSubmit={getSearch} className="search-form">
         <InputGroup className="mb-3">
@@ -56,19 +57,22 @@ function App() {
             onChange={updateSearch}
           />
           <InputGroup.Append>
-            <Button variant="outline-secondary" type="submit">Button</Button>
+            <Button variant="outline-secondary" type="submit">Search</Button>
           </InputGroup.Append>
         </InputGroup>
       </form>
       {/* form end */}
-        <p style={{"color": "#fff"}}>*use commas to seprerate ingredients</p>
+        <p style={{"color": "#fff"}}>(*use commas to seprerate ingredients)</p>
       <div className="recipe-div">
       {recipes.map((recipe) => (
         <RecipeCard
         title={recipe.recipe.label}
         calories={recipe.recipe.calories}
         image={recipe.recipe.image}
-          ingredients={recipe.recipe.ingredients}
+        ingredients={recipe.recipe.ingredients}
+        carbs={Math.round(recipe.recipe.digest[1].total)}
+        fats={Math.round(recipe.recipe.digest[0].total)}
+        protein={Math.round(recipe.recipe.digest[2].total)}
         />
       ))}
       </div>
