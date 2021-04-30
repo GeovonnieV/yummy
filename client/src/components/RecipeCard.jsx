@@ -1,7 +1,14 @@
-import React from "react";
-import { Card, Button } from "react-bootstrap";
+import React, {useState} from "react";
+import { Card, Button, Modal } from "react-bootstrap";
 
 const RecipeCard = ({ title, calories, image, ingredients }) => {
+  // state
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+  // JSX
   return (
     <div className="container">
       <div className="container">
@@ -10,10 +17,27 @@ const RecipeCard = ({ title, calories, image, ingredients }) => {
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              calories({Math.round(calories)})
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            {/* modal */}
+            <Button variant="primary" onClick={handleShow}>
+        Launch demo modal
+      </Button>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            More Detail
+          </Button>
+        </Modal.Footer>
+      </Modal>
+            {/* modal end */}
           </Card.Body>
         </Card>
       </div>
