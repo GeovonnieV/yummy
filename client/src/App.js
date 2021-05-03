@@ -23,7 +23,7 @@ function App() {
   //  runs when query is changed
   useEffect(() => {
     getRecipies();
-  }, [query]);
+  }, [query,searchCalories]);
   // api call
   const getRecipies = async () => {
     const response = await fetch(
@@ -48,7 +48,7 @@ function App() {
   //
   const getSearchCalories = (e) => {
     e.preventDefault()
-   console.log("hello")
+    setSearchCalories(e.target.value)
   };
 
   // JSX
@@ -72,7 +72,14 @@ function App() {
           />
           <InputGroup.Append>
            {/*  */}
-           <button value={"hello"} onClick={getSearchCalories}>hello</button>
+           <div class="dropdown">
+                  <button onClick={getSearchCalories}>Calories?</button>
+                  <div>
+                    <option value="500" onClick={getSearchCalories}>
+                      0-500
+                    </option>
+                  </div>
+                </div>
             {/*  */}
             <Button variant="outline-secondary" type="submit">
               Search
