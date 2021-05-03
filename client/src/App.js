@@ -71,16 +71,6 @@ function App() {
             onChange={updateSearch}
           />
           <InputGroup.Append>
-           {/*  */}
-           <div class="dropdown">
-                  <button onClick={getSearchCalories}>Calories?</button>
-                  <div>
-                    <option value="500" onClick={getSearchCalories}>
-                      0-500
-                    </option>
-                  </div>
-                </div>
-            {/*  */}
             <Button variant="outline-secondary" type="submit">
               Search
             </Button>
@@ -88,7 +78,20 @@ function App() {
         </InputGroup>
       </form>
       {/* form end */}
+      <div className="filter-container">
       <p style={{ color: "#fff" }}>(*use commas to seprerate ingredients)</p>
+           {/*  */}
+           <div class="dropdown">
+                  <button onClick={getSearchCalories}>Filter</button>
+                  <div>
+                    <p>Calories</p>
+                    <option value="500" onClick={getSearchCalories}>
+                      0-500
+                    </option>
+                  </div>
+                </div>
+            {/*  */}
+      </div>
       <div className="recipe-div">
         {recipes.map((recipe) => (
           <RecipeCard
