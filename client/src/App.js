@@ -44,6 +44,7 @@ function App() {
     e.preventDefault();
     setQuery(search);
     setSearch("");
+    setSearchCalories("")
   };
   //
   const getSearchCalories = (e) => {
