@@ -12,9 +12,9 @@ console.log(carbs)
   return (
     <div className="container">
       <div className="container">
-        <Card.Img variant="center" src={image} className="recipe-image" bg={"Secondary"} />
+        <Card.Img variant="center" src={image} className="recipe-image" />
         <Card style={{ width: "18rem" }}>
-          <Card.Body>
+          <Card.Body className="recipe-card">
             <Card.Title>{title}</Card.Title>
             <Card.Text>
               calories({Math.round(calories)})

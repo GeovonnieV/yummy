@@ -7,21 +7,57 @@
     text-align: center;
 }
 
-.recipe-div{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.recipe-image{
-    border-radius: 100%;
-    border: 2px solid white;
-    max-height: 180px;
-    margin-top: 2%;
-}
-
 .filter-container{
     display: flex;
     text-align: center;
     justify-content: center;
     margin-left: 2%;
 }
+
+.dropdown{
+    display:inline-block;
+    position:relative;
+  }
+
+  .dropdown button{
+    border:none;
+    padding:8px 16px;
+    background-color: #fff;
+    color: coral;
+    transition:.3s;
+    cursor:pointer;
+  }
+  
+  .dropdown:hover button{
+    background-color: #fff;
+  }
+  
+  .dropdown div{
+    background-color:#fff;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    z-index:1;
+    visibility:hidden;
+    position:absolute;
+    min-width:100%;
+    opacity:0;
+    transition:.3s;
+  }
+  
+  .dropdown:hover div{
+    visibility:visible;
+    opacity:1;
+  }
+  
+  .dropdown div option{
+    display:block;
+    text-decoration:none;
+    padding:8px;
+    color:#000;
+    transition:.1s;
+    white-space:nowrap;
+  }
+  
+  .dropdown div option:hover{
+    background-color: gray;
+    color:#fff;
+  }

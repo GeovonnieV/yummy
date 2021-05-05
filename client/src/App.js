@@ -3,12 +3,7 @@ import ReactCard from "./components/RecipeCard";
 import "./styles/app.scss";
 import RecipeCard from "./components/RecipeCard";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  InputGroup,
-  Button,
-  FormControl,
-  Form
-} from "react-bootstrap";
+import { InputGroup, Button, FormControl, Form } from "react-bootstrap";
 
 function App() {
   // API Keys
@@ -23,7 +18,7 @@ function App() {
   //  runs when query is changed
   useEffect(() => {
     getRecipies();
-  }, [query,searchCalories]);
+  }, [query, searchCalories]);
   // api call
   const getRecipies = async () => {
     const response = await fetch(
@@ -44,12 +39,12 @@ function App() {
     e.preventDefault();
     setQuery(search);
     setSearch("");
-    setSearchCalories("")
+    setSearchCalories("");
   };
   //
   const getSearchCalories = (e) => {
-    e.preventDefault()
-    setSearchCalories(e.target.value)
+    e.preventDefault();
+    setSearchCalories(e.target.value);
   };
 
   // JSX
@@ -71,27 +66,29 @@ function App() {
             value={search}
             onChange={updateSearch}
           />
+          {/* searchbar */}
           <InputGroup.Append>
             <Button variant="outline-secondary" type="submit">
               Search
             </Button>
           </InputGroup.Append>
         </InputGroup>
+        {/* filter */}
+        <div class="dropdown">
+          <button onClick={getSearchCalories}>Filter</button>
+          <div>
+            <p>Calories</p>
+            <option value="500" onClick={getSearchCalories}>
+              0-500
+            </option>
+          </div>
+        </div>
+        {/* filter end */}
+        {/* searchbar end */}
       </form>
       {/* form end */}
       <div className="filter-container">
-      <p style={{ color: "#fff" }}>(*use commas to seprerate ingredients)</p>
-           {/*  */}
-           <div class="dropdown">
-                  <button onClick={getSearchCalories}>Filter</button>
-                  <div>
-                    <p>Calories</p>
-                    <option value="500" onClick={getSearchCalories}>
-                      0-500
-                    </option>
-                  </div>
-                </div>
-            {/*  */}
+        <p style={{ color: "#fff" }}>(*use commas to seprerate ingredients)</p>
       </div>
       <div className="recipe-div">
         {recipes.map((recipe) => (

@@ -1,0 +1,27 @@
+.recipe-div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.recipe-image{
+    border-radius: 100%;
+    border: 2px solid white;
+    max-height: 180px;
+    margin-top: 2%;
+}
+
+
+// Media Query
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .recipe-div{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

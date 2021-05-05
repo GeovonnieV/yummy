@@ -9,53 +9,6 @@ body{
 }
 
 
-.dropdown{
-    display:inline-block;
-    position:relative;
-  }
-
-  .dropdown button{
-    border:none;
-    padding:8px 16px;
-    background-color: black;
-    color:white;
-    transition:.3s;
-    cursor:pointer;
-  }
-  
-  .dropdown:hover button{
-    background-color: black;
-  }
-  
-  .dropdown div{
-    background-color:#fff;
-    box-shadow:0 4px 8px rgba(0,0,0,0.2);
-    z-index:1;
-    visibility:hidden;
-    position:absolute;
-    min-width:100%;
-    opacity:0;
-    transition:.3s;
-  }
-  
-  .dropdown:hover div{
-    visibility:visible;
-    opacity:1;
-  }
-  
-  .dropdown div option{
-    display:block;
-    text-decoration:none;
-    padding:8px;
-    color:#000;
-    transition:.1s;
-    white-space:nowrap;
-  }
-  
-  .dropdown div option:hover{
-    background-color: gray;
-    color:#fff;
-  }
-
 // sub components
-@import "./home"
+@import "./home";
+@import "./recipeCard";
