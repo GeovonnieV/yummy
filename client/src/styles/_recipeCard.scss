@@ -25,3 +25,29 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .recipe-div{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .recipe-div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
