@@ -81,6 +81,15 @@ function App() {
             <option value="500" onClick={getSearchCalories}>
               0-500
             </option>
+            <option value="500" onClick={getSearchCalories}>
+              0-1000
+            </option>
+            <option value="500" onClick={getSearchCalories}>
+              0-1500
+            </option>
+            <option value="500" onClick={getSearchCalories}>
+              0-2000
+            </option>
           </div>
         </div>
         {/* filter end */}
@@ -100,6 +109,7 @@ function App() {
             carbs={Math.round(recipe.recipe.digest[1].total)}
             fats={Math.round(recipe.recipe.digest[0].total)}
             protein={Math.round(recipe.recipe.digest[2].total)}
+            moreDetail={recipe.recipe.url}
           />
         ))}
       </div>

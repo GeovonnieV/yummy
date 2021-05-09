@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Card, Button, Modal } from "react-bootstrap";
 
-const RecipeCard = ({ title, calories, image, ingredients, carbs, fats, protein }) => {
+const RecipeCard = ({ title, calories, image, ingredients, carbs, fats, protein, moreDetail }) => {
   // state
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -42,7 +42,7 @@ console.log(carbs)
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button href={moreDetail} variant="primary" onClick={handleClose}>
             More Detail
           </Button>
         </Modal.Footer>
